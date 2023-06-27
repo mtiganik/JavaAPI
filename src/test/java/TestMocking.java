@@ -26,13 +26,5 @@ public class TestMocking {
         Assertions.assertEquals(1, mocking.assignPermission());
     }
 
-    @Test
-    public void testGetAllPostsCOntainingWord(){
-        List<String> filteredPosts = new ArrayList<>();
-        filteredPosts.add("Awesome Day");
-        filteredPosts.add("This place is awesome");
-        when(user.getAllPostsContainingWord("awesome")).thenReturn(filteredPosts);
-
-    }
 
 }
