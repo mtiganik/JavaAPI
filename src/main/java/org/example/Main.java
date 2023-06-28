@@ -1,19 +1,21 @@
 package org.example;
 
+import io.github.cdimascio.dotenv.Dotenv;
+import io.github.cdimascio.dotenv.DotenvException;
+
+
 import java.sql.*;
 
 public class Main {
-    static final String DB_URL = "jdbc:mysql://localhost:3306/sys";
-//    static final String DB_URL= "Server=localhost;Database=JavaWebAPI";
-    static final String USER = "mihkel";
-    static final String PASS = "A!VeryComplex123Password";
     static final String QUERY = "select Personid,LastName,FirstName,Age from sys.persons";
 
     public static void main(String[] args) {
 
-
         // Open a connection
-        try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        Dotenv dotenv = Dotenv.load();
+        try(
+                Connection conn = DriverManager.getConnection(dotenv.get("DB_URL"), dotenv.get("DB_USER"),
+                dotenv.get("DB_PASS"));
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(QUERY)) {
             // Extract data from result set
