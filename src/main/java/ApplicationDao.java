@@ -1,12 +1,10 @@
-import jdk.jshell.spi.ExecutionControl;
-
 public class ApplicationDao {
 
-    public User getUserById(String id) {
+    public Person getUserById(String id) {
         return null;
     }
 
-    public void save(User user) throws Exception {
+    public void save(Person user) throws Exception {
         // Make database query here
     }
 

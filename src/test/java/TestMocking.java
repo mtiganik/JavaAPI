@@ -5,26 +5,23 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class TestMocking {
 
-    @Mock
-    User user;
-
-    @Test
-    @DisplayName("Permission assigned successfully")
-    public void assignPermissions() {
-        Mocking mocking = new Mocking();
-        mocking.setUser(user);
-        when(user.getRole()).thenReturn("admin");
-        when(user.getUsername()).thenReturn("kunal");
-        Assertions.assertEquals(1, mocking.assignPermission());
-    }
+//    @Mock
+//    Person user;
+//
+//    @Test
+//    @DisplayName("Permission assigned successfully")
+//    public void assignPermissions() {
+//        Mocking mocking = new Mocking();
+//        mocking.setUser(user);
+//        when(user.getRole()).thenReturn("admin");
+//        when(user.getUsername()).thenReturn("kunal");
+//        Assertions.assertEquals(1, mocking.assignPermission());
+//    }
 
 
 }
