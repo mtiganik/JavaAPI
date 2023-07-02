@@ -8,7 +8,6 @@ import java.util.Map;
 
 public class DatabaseUtils
 {
-    Connection conn = null;
     public static Connection createConnection(String driver, String url, String username, String password)
     {
         Connection conn;
