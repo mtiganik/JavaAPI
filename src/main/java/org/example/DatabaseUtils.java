@@ -8,18 +8,26 @@ import java.util.Map;
 
 public class DatabaseUtils
 {
-    public static Connection createConnection(String driver, String url, String username, String password) throws ClassNotFoundException, SQLException
+    Connection conn = null;
+    public static Connection createConnection(String driver, String url, String username, String password)
     {
-        Class.forName(driver);
+        Connection conn;
+        try {
+            Class.forName(driver);
 
-        if ((username == null) || (password == null) || (username.trim().length() == 0) || (password.trim().length() == 0))
-        {
-            return  DriverManager.getConnection(url);
+            if ((username == null) || (password == null) || (username.trim().length() == 0) || (password.trim().length() == 0)) {
+                conn =  DriverManager.getConnection(url);
+            } else {
+                conn =  DriverManager.getConnection(url, username, password);
+            }
+            return conn;
+        }catch(SQLException e) {
+            e.printStackTrace();
         }
-        else
-        {
-            return DriverManager.getConnection(url, username, password);
+        catch(ClassNotFoundException e){
+            e.printStackTrace();
         }
+        return null;
     }
 
     public static void close(Connection connection)

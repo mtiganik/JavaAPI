@@ -3,21 +3,26 @@ package org.example;
 import io.github.cdimascio.dotenv.Dotenv;
 import io.github.cdimascio.dotenv.DotenvException;
 
-
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class Main {
+
     static final String QUERY = "select Personid,LastName,FirstName,Age from sys.persons";
 
     public static void main(String[] args) {
-
-        // Open a connection
+        DatabaseUtils utils = new DatabaseUtils();
         Dotenv dotenv = Dotenv.load();
-        try(
-                Connection conn = DriverManager.getConnection(dotenv.get("DB_URL"), dotenv.get("DB_USER"),
+        List<Person> results = new ArrayList<Person>();
+        Connection conn = utils.createConnection("com.mysql.cj.jdbc.Driver", dotenv.get("DB_URL"),dotenv.get("DB_USER"),
                 dotenv.get("DB_PASS"));
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(QUERY)) {
+        // Open a connection
+        try(
+                Statement stmt = conn.createStatement();
+//                results = utils.map(stmt.executeQuery(QUERY));
+                ResultSet rs = stmt.executeQuery(QUERY)) {
             // Extract data from result set
             while (rs.next()) {
                 // Retrieve by column name
