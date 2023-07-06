@@ -1,3 +1,5 @@
+//import org.example.Person;
+
 public class Mocking {
     Person user;
 
@@ -18,7 +20,7 @@ public class Mocking {
 
 //    public int updateUsername(String id, String username) throws Exception{
 //        ApplicationDao applicationDao = new ApplicationDao();
-//        Person user = applicationDao.getUserById(id);
+//        org.example.Person user = applicationDao.getUserById(id);
 //        if(user!=null)
 //            user.setUsername(username);
 //        applicationDao.save(user);

@@ -1,3 +1,5 @@
+import org.example.Person;
+
 public class ApplicationDao {
 
     public Person getUserById(String id) {

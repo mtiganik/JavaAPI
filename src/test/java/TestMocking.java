@@ -11,7 +11,7 @@ import static org.mockito.Mockito.when;
 public class TestMocking {
 
 //    @Mock
-//    Person user;
+//    org.example.Person user;
 //
 //    @Test
 //    @DisplayName("Permission assigned successfully")
